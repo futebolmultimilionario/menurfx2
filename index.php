@@ -227,7 +227,7 @@ $seleciona_conversa = pg_query($db_handle, $conversa_query);
 $array_conversa = pg_fetch_array($seleciona_conversa, 0);
 
 if(!empty($texto) and empty($array_conversa['menu'])){
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas"));
     $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
     $menu = 1;
     $hora = time();
@@ -243,7 +243,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
         $i++;
         }
     }
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".$mensagem);
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".$mensagem);
     cadastra_apostas($apostas);
     $hora = time();
     $menu = 2;
@@ -251,7 +251,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
     $update_menu = "UPDATE chat SET hora='$hora', menu='$menu' WHERE numero=1";
     $atualiza_menu = pg_query($db_handle, $update_menu);
 }else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa['hora'] + 1800) >= time()){
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".urlencode("*Desligando contas. Aguarde...*"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Desligando contas. Aguarde...*"));
     $id = seleciona_id_aposta($texto);
     $usuarios = verifica_usuarios($id);
     $email_usuarios_pegaram = array();
@@ -276,7 +276,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
     foreach($array_usuarios as $usuario){
         $mensagem = $mensagem.urlencode($usuario[0]." - ".$usuario[1]."  ".$usuario[2]."\n");
     }
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".$mensagem);
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".$mensagem);
     $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
     $deletar_query = "TRUNCATE TABLE aposta";
     $deletar_dados = pg_query($db_handle, $deletar_query);
@@ -285,7 +285,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
     $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
     $reiniciar_dados = pg_query($db_handle, $reiniciar);
 }else if($texto == "2" and $array_conversa['menu'] == 1 and ($array_conversa['hora'] + 1800)>= time()){
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".urlencode("*Religando contas. Aguarde...*"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Religando contas. Aguarde...*"));
     $usuarios = verifica_status();
     foreach($usuarios as $usuario){
         $array_usuarios = muda_usuario($usuario['email'], 1);
@@ -304,7 +304,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
     foreach($array_usuarios as $usuario){
         $mensagem = $mensagem.urlencode($usuario[0]." - ".$usuario[1]."  ".$usuario[2]."\n");
     }
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".$mensagem);
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".$mensagem);
     $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
     $deletar_query = "TRUNCATE TABLE aposta";
     $deletar_dados = pg_query($db_handle, $deletar_query);
@@ -320,7 +320,7 @@ if(!empty($texto) and empty($array_conversa['menu'])){
     $deletar2_dados = pg_query($db_handle, $deletar2_query);
     $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
     $reiniciar_dados = pg_query($db_handle, $reiniciar);
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143825@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas"));
     $menu = 1;
     $hora = time();
     $menu_query = "UPDATE chat SET hora='$hora', menu='$menu' WHERE numero=1";
