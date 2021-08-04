@@ -119,7 +119,11 @@ return $response['Data'];
 
 function muda_usuario($usuario, $status){
     $curl = curl_init();
-    $array_usuarios = array("contarfxinvesting17@gmail.com" => array("17",
+    $array_usuarios = array("contarfxinvesting08@gmail.com" => array("08",
+                                                                    "biatorres07",
+                                                                    "",
+                                                                    ""),
+                            "contarfxinvesting17@gmail.com" => array("17",
                                                                     "nuharahamad",
                                                                     "",
                                                                     ""),
