@@ -121,15 +121,7 @@ return $response['Data'];
 
 function muda_usuario($usuario, $status){
     $curl = curl_init();
-    $array_usuarios = array("contarfxinvesting13@gmail.com" => array("13",
-                                                                    "ianzin2503",
-                                                                    "",
-                                                                    ""),
-                            "contarfxinvesting21@gmail.com" => array("21",
-                                                                    "talitac321",
-                                                                    "",
-                                                                    ""),
-                            "contarfxinvesting22@gmail.com" => array("22",
+    $array_usuarios = array("contarfxinvesting22@gmail.com" => array("22",
                                                                     "luismed2",
                                                                     "",
                                                                     ""),
@@ -138,7 +130,7 @@ function muda_usuario($usuario, $status){
                                                                     "",
                                                                     ""),
                             "contarfxinvesting25@gmail.com" => array("25",
-                                                                    "espiga02",
+                                                                    "jansylima",
                                                                     "",
                                                                     ""),
                             "contarfxinvesting28@gmail.com" => array("28",
@@ -149,8 +141,8 @@ function muda_usuario($usuario, $status){
                                                                     "milenasantos2",
                                                                     "",
                                                                     ""),
-                            "contarfxinvesting33@gmail.com" => array("33",
-                                                                    "valkle",
+                            "contarfxinvesting42@gmail.com" => array("42",
+                                                                    "daniell0206",
                                                                     "",
                                                                     ""));
     curl_setopt_array($curl, array(
