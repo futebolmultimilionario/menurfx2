@@ -116,6 +116,10 @@ function envia_contas_encerradas($usuarios, $partida){
                             "almizinho2" => array("44",
                                                                     "almizinho2",
                                                                     "",
+                                                                    " ⚫"),
+                            "toino12704580" => array("47",
+                                                                    "toino12704580",
+                                                                    "",
                                                                     " ⚫"));
                                                                     
     foreach($usuarios as $usuario){
@@ -335,6 +339,10 @@ function muda_usuario($usuario, $status){
                                                                     ""),
                             "contarfxinvesting44@gmail.com" => array("44",
                                                                     "almizinho2",
+                                                                    "",
+                                                                    ""),
+                            "contarfxinvesting47@gmail.com" => array("47",
+                                                                    "toino12704580",
                                                                     "",
                                                                     ""));
     curl_setopt_array($curl, array(
