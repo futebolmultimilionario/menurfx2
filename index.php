@@ -101,6 +101,10 @@ function envia_contas_encerradas($usuarios, $partida){
                                                                     "jeffersonrasta",
                                                                     "",
                                                                     " ⚫"),
+                            "robertar29" => array("39",
+                                                                    "robertar29",
+                                                                    "",
+                                                                    " ⚫"),
                             "marconejs74" => array("40",
                                                                     "marconejs74",
                                                                     "",
@@ -123,10 +127,6 @@ function envia_contas_encerradas($usuarios, $partida){
                                                                     " ⚫"),
                             "toino12704580" => array("47",
                                                                     "toino12704580",
-                                                                    "",
-                                                                    " ⚫"),
-                            "robertar29" => array("52",
-                                                                    "robertar29",
                                                                     "",
                                                                     " ⚫"));
                                                                     
@@ -333,6 +333,10 @@ function muda_usuario($usuario, $status){
                                                                     "jeffersonrasta",
                                                                     "",
                                                                     ""),
+                            "contarfxinvesting39@gmail.com" => array("39",
+                                                                    "robertar29",
+                                                                    "",
+                                                                    ""),
                             "contarfxinvesting40@gmail.com" => array("40",
                                                                     "marconejs74",
                                                                     "",
@@ -355,10 +359,6 @@ function muda_usuario($usuario, $status){
                                                                     ""),
                             "contarfxinvesting47@gmail.com" => array("47",
                                                                     "toino12704580",
-                                                                    "",
-                                                                    ""),
-                            "contarfxinvesting52@gmail.com" => array("52",
-                                                                    "robertar29",
                                                                     "",
                                                                     ""));
     curl_setopt_array($curl, array(
