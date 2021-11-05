@@ -421,75 +421,75 @@ function muda_usuario($usuario, $status){
     $curl = curl_init();
     $array_usuarios = array("contarfxinvesting01@gmail.com" => array("01",
                                                                     "mariliaraujo",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting07@gmail.com" => array("07",
                                                                     "aripirola07",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting08@gmail.com" => array("08",
                                                                     "jonascjp",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting13@gmail.com" => array("13",
                                                                     "viniciusarjo",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "conrfxinvesting201@gmail.com" => array("20",
                                                                     "alencar271",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting21@gmail.com" => array("21",
                                                                     "lucaseugenioac",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting23@gmail.com" => array("23",
                                                                     "claudiachaves",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting25@gmail.com" => array("25",
                                                                     "daniellehfv",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting28@gmail.com" => array("28",
                                                                     "hamadmajda",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting32@gmail.com" => array("32",
                                                                     "nathalianc",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting35@gmail.com" => array("35",
                                                                     "jeffersonrasta",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting39@gmail.com" => array("39",
                                                                     "robertar29",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting40@gmail.com" => array("40",
                                                                     "marconejs74",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting41@gmail.com" => array("41",
                                                                     "mariajdantass",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting42@gmail.com" => array("42",
                                                                     "naahsf",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting44@gmail.com" => array("44",
                                                                     "almizinho2",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting46@gmail.com" => array("46",
                                                                     "jocassia2",
-                                                                    "0";
+                                                                    "0",
                                                                     ""),
                             "contarfxinvesting47@gmail.com" => array("47",
                                                                     "toino12704580",
-                                                                    "0";
+                                                                    "0",
                                                                     ""));
     curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://automatips.com.br/api/Usuario/alteraStatusClientePainel?email='.$usuario.'&contaBet365='.$array_usuarios[$usuario][1].'&status='.$status.'&token=JOS2F00AF043DBB75A3B12F28A5D4A1391A48EE9DD3DF424F840C63BCD3345CE02A',
