@@ -587,7 +587,7 @@ function envia_dados($data){
     $result = curl_exec( $ch );
 }
 
-$APIurl = 'https://eu210.chat-api.com/instance219965/';
+$APIurl = getenv('API_URL');
 $token = getenv('TOKEN');
 
 $requisicaocod = file_get_contents("php://input");
