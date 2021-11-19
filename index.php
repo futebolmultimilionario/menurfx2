@@ -457,6 +457,10 @@ function pega_usuarios_painel($bloco){
         $adicionar_query = "INSERT INTO contas (numero, email, usuario) VALUES ('$numero', '$email', '$conta')";
         $adicionar_dados = pg_query($db_handle, $adicionar_query);
     }
+    
+    
+    
+    
     }
 
     function atualiza_contas(){
@@ -676,8 +680,8 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
     $reiniciar_dados = pg_query($db_handle, $reiniciar);
 }else if($texto == "5" and $array_conversa['menu'] == 1 and ($array_conversa['hora'] + 1800)>= time()){
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1629250128@g.us&body=".urlencode("*Usuários sendo atualizados. Aguarde...*"));
-    pega_usuarios_painel('60b1284d654e570b388ca992');
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Usuários sendo atualizados. Aguarde...*"));
+    pega_usuarios_painel('60dd2dfeff007d3874665463');
     $contas = atualiza_contas();
     $mensagem = urlencode("*Usuários atualizados:*\n\n");
     foreach($contas as $usuario){
