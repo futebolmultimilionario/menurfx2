@@ -57,74 +57,15 @@ function verifica_usuario($id, $usuarios_antigos, $partida){
 function envia_contas_encerradas($usuarios, $partida){
     $APIurl = getenv('API_URL');
     $token = getenv('TOKEN');
-    $array_usuarios = array("mariliaraujo" => array("01",
-                                                                    "mariliaraujo",
-                                                                    "",
-                                                                    ""),
-                            "aripirola07" => array("07",
-                                                                    "aripirola07",
-                                                                    "",
-                                                                    ""),
-                            "jonascjp" => array("08",
-                                                                    "jonascjp",
-                                                                    "",
-                                                                    ""),
-                            "ingridmarcelly" => array("13",
-                                                                    "ingridmarcelly",
-                                                                    "",
-                                                                    ""),
-                            "dungagbabet" => array("19",
-                                                                    "dungagbabet",
-                                                                    "",
-                                                                    ""),
-                            "alencar271" => array("20",
-                                                                    "alencar271",
-                                                                    "",
-                                                                    ""),
-                            "lucaseugenioac" => array("21",
-                                                                    "lucaseugenioac",
-                                                                    "",
-                                                                    ""),
-                            "claudiachaves" => array("23",
-                                                                    "claudiachaves",
-                                                                    "",
-                                                                    ""),
-                            "hamadmajda" => array("28",
-                                                                    "hamadmajda",
-                                                                    "",
-                                                                    ""),
-                            "alexmagno2008" => array("29",
-                                                                    "alexmagno2008",
-                                                                    "",
-                                                                    ""),
-                            "nathalianc" => array("32",
-                                                                    "nathalianc",
-                                                                    "",
-                                                                    ""),
-                            "gdmendoncajp" => array("35",
-                                                                    "gdmendoncajp",
-                                                                    "",
-                                                                    ""),
-                            "marconejs74" => array("40",
-                                                                    "marconejs74",
-                                                                    "",
-                                                                    ""),
-                            "rayssarayanee" => array("41",
-                                                                    "rayssarayanee",
-                                                                    "",
-                                                                    ""),
-                            "naahsf" => array("42",
-                                                                    "naahsf",
-                                                                    "",
-                                                                    ""),
-                            "marianna2411" => array("44",
-                                                                    "marianna2411",
-                                                                    "",
-                                                                    ""),
-                            "toino12704580" => array("47",
-                                                                    "toino12704580",
-                                                                    "",
-                                                                    ""));
+    $contas_novas = atualiza_contas();
+    $array_usuarios = [];
+
+    foreach($contas_novas as $conta){
+        $array_usuarios[$conta['usuario']][0] = $conta['numero'];
+        $array_usuarios[$conta['usuario']][1] = $conta['usuario'];
+        $array_usuarios[$conta['usuario']][2] = "";
+        $array_usuarios[$conta['usuario']][3] = " ⚫";
+    }
                                                                     
     foreach($usuarios as $usuario){
             $array_usuarios[$usuario][3] = " 🟢";
@@ -304,74 +245,16 @@ function verifica_apostas_concluidas($array_aposta){
     }
     $mensagem = "";
     foreach($array_aposta_cadastrada as $key => $aposta){
-        $array_usuarios = array("contarfxinvesting01@gmail.com" => array("01",
-                                                                    "mariliaraujo",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting07@gmail.com" => array("07",
-                                                                    "aripirola07",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting08@gmail.com" => array("08",
-                                                                    "jonascjp",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting13@gmail.com" => array("13",
-                                                                    "ingridmarcelly",
-                                                                    "",
-                                                                    " ⚫"),
-                            "conrfxinvesting192@gmail.com" => array("19",
-                                                                    "dungagbabet",
-                                                                    "",
-                                                                    " ⚫"),
-                            "conrfxinvesting201@gmail.com" => array("20",
-                                                                    "alencar271",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting21@gmail.com" => array("21",
-                                                                    "lucaseugenioac",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting23@gmail.com" => array("23",
-                                                                    "claudiachaves",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting28@gmail.com" => array("28",
-                                                                    "hamadmajda",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting29@gmail.com" => array("29",
-                                                                    "alexmagno2008",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting32@gmail.com" => array("32",
-                                                                    "nathalianc",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting35@gmail.com" => array("35",
-                                                                    "gdmendoncajp",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting40@gmail.com" => array("40",
-                                                                    "marconejs74",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting41@gmail.com" => array("41",
-                                                                    "rayssarayanee",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting42@gmail.com" => array("42",
-                                                                    "naahsf",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting44@gmail.com" => array("44",
-                                                                    "marianna2411",
-                                                                    "",
-                                                                    " ⚫"),
-                            "contarfxinvesting47@gmail.com" => array("47",
-                                                                    "toino12704580",
-                                                                    "",
-                                                                    " ⚫"));
+        $contas_novas = atualiza_contas();
+
+        $array_usuarios = [];
+
+        foreach($contas_novas as $conta){
+            $array_usuarios[$conta['email']][0] = $conta['numero'];
+            $array_usuarios[$conta['email']][1] = $conta['usuario'];
+            $array_usuarios[$conta['email']][2] = "0";
+            $array_usuarios[$conta['email']][3] = " ⚫";
+        }
         $usuarios_aposta = array();
         $controle_duplicadas = 0;
         $controle_naofeitas = 0;
@@ -411,74 +294,16 @@ function verifica_apostas_concluidas($array_aposta){
 }
 function muda_usuario($usuario, $status){
     $curl = curl_init();
-    $array_usuarios = array("contarfxinvesting01@gmail.com" => array("01",
-                                                                    "mariliaraujo",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting07@gmail.com" => array("07",
-                                                                    "aripirola07",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting08@gmail.com" => array("08",
-                                                                    "jonascjp",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting13@gmail.com" => array("13",
-                                                                    "ingridmarcelly",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "conrfxinvesting192@gmail.com" => array("19",
-                                                                    "dungagbabet",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "conrfxinvesting201@gmail.com" => array("20",
-                                                                    "alencar271",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting21@gmail.com" => array("21",
-                                                                    "lucaseugenioac",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting23@gmail.com" => array("23",
-                                                                    "claudiachaves",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting28@gmail.com" => array("28",
-                                                                    "hamadmajda",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting29@gmail.com" => array("29",
-                                                                    "alexmagno2008",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting32@gmail.com" => array("32",
-                                                                    "nathalianc",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting35@gmail.com" => array("35",
-                                                                    "gdmendoncajp",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting40@gmail.com" => array("40",
-                                                                    "marconejs74",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting41@gmail.com" => array("41",
-                                                                    "rayssarayanee",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting42@gmail.com" => array("42",
-                                                                    "naahsf",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting44@gmail.com" => array("44",
-                                                                    "marianna2411",
-                                                                    "0",
-                                                                    " ⚫"),
-                            "contarfxinvesting47@gmail.com" => array("47",
-                                                                    "toino12704580",
-                                                                    "0",
-                                                                    " ⚫"));
+    $contas_novas = atualiza_contas();
+
+    $array_usuarios = [];
+
+    foreach($contas_novas as $conta){
+        $array_usuarios[$conta['email']][0] = $conta['numero'];
+        $array_usuarios[$conta['email']][1] = $conta['usuario'];
+        $array_usuarios[$conta['email']][2] = "";
+        $array_usuarios[$conta['email']][3] = " ⚫";
+    }
     curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://automatips.com.br/api/Usuario/alteraStatusClientePainel?email='.$usuario.'&contaBet365='.$array_usuarios[$usuario][1].'&status='.$status.'&token=JOS2F00AF043DBB75A3B12F28A5D4A1391A48EE9DD3DF424F840C63BCD3345CE02A',
   CURLOPT_RETURNTRANSFER => true,
@@ -565,6 +390,84 @@ function seleciona_numeropartida(){
     return $numeropartida;
 }
 
+function pega_usuarios_painel($bloco){
+    $curl = curl_init();
+    
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://automatips.com.br/api/Adm/getUsuarios?token=YBknWTkY6FUER0owiPffbMSucHbRvqFnSxgUR7TasBXEuW1YLqBda0wi2KgQO&tokenAplicacao=JOS2F00AF043DBB75A3B12F28A5D4A1391A48EE9DD3DF424F840C63BCD3345CE02A',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'authority: automatips.com.br',
+        'sec-ch-ua: "Google Chrome";v="95", "Chromium";v="95", ";Not A Brand";v="99"',
+        'accept: application/json, text/javascript, */*; q=0.01',
+        'content-type: application/json; charset=utf-8',
+        'x-requested-with: XMLHttpRequest',
+        'sec-ch-ua-mobile: ?0',
+        'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36',
+        'sec-ch-ua-platform: "Windows"',
+        'sec-fetch-site: same-origin',
+        'sec-fetch-mode: cors',
+        'sec-fetch-dest: empty',
+        'referer: https://automatips.com.br/v2/dashboardAdm.html',
+        'accept-language: pt-PT,pt;q=0.9,en-US;q=0.8,en;q=0.7',
+        'cookie: token="YBknWTkY6FUER0owiPffbMSucHbRvqFnSxgUR7TasBXEuW1YLqBda0wi2KgQO"; tokenAplicacao=JOS2F00AF043DBB75A3B12F28A5D4A1391A48EE9DD3DF424F840C63BCD3345CE02A; Servidor=http://automatips.com.br:7009; emailLogin=josealberto.gomes@hotmail.com; dtVen=2021-11-30T02:40:16Z'
+      ),
+    ));
+    
+    $response = json_decode(curl_exec($curl), TRUE)["Data"];
+    
+    
+    curl_close($curl);
+    
+    $array_usuarios = array();
+    
+    date_default_timezone_set("America/Bahia");
+    $hoje = strtotime(date("Y-m-d"));
+    $i=0;
+    foreach($response as $conta){
+        $data_sync = strtotime(str_replace(["T", "Z"], " ", $conta['dataSync']));
+        if($conta['statusPainel'] == 1 and $conta['tipsterFixo'] == $bloco and $data_sync > $hoje){
+            $array_usuarios[$i]['numero'] = substr($conta['email'], strpos($conta['email'], '@gmail.com')-2, 2);
+            $array_usuarios[$i]['email'] = $conta['email'];
+            $array_usuarios[$i]['usuario'] = $conta['contaBet365'];
+            $i++;
+        }
+    }
+    
+    
+    array_multisort(array_map(function($element) {
+        return $element['numero'];
+    }, $array_usuarios), SORT_ASC, $array_usuarios);
+    
+    
+    $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
+    $deletar_query = "TRUNCATE TABLE contas";
+    $deletar_dados = pg_query($db_handle, $deletar_query);
+    
+    foreach($array_usuarios as $usuario){
+        $numero = $usuario['numero'];
+        $email = $usuario['email'];
+        $conta = $usuario['usuario'];
+        $adicionar_query = "INSERT INTO contas (numero, email, usuario) VALUES ('$numero', '$email', '$conta')";
+        $adicionar_dados = pg_query($db_handle, $adicionar_query);
+    }
+    }
+
+    function atualiza_contas(){
+        $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
+        $query = "SELECT * FROM contas";
+        $rs = pg_query($db_handle, $query);
+        $row = pg_fetch_all($rs);
+
+        return $row;
+    }
+
 function envia_dados($data){
     $data_string = json_encode($data);
 
@@ -605,7 +508,7 @@ $seleciona_conversa = pg_query($db_handle, $conversa_query);
 $array_conversa = pg_fetch_array($seleciona_conversa, 0);
 
 if(!empty($texto) and empty($array_conversa['menu'])){
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas\n*3.* Verificar apostas\n*4.* ⚠️ Encerrar Aposta"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas\n*3.* Verificar apostas\n*4.* ⚠️ Encerrar Aposta\n*5.* Atualizar contas"));
     $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
     $menu = 1;
     $hora = time();
@@ -772,6 +675,22 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     $deletar2_dados = pg_query($db_handle, $deletar2_query);
     $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
     $reiniciar_dados = pg_query($db_handle, $reiniciar);
+}else if($texto == "5" and $array_conversa['menu'] == 1 and ($array_conversa['hora'] + 1800)>= time()){
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1629250128@g.us&body=".urlencode("*Usuários sendo atualizados. Aguarde...*"));
+    pega_usuarios_painel('60b1284d654e570b388ca992');
+    $contas = atualiza_contas();
+    $mensagem = urlencode("*Usuários atualizados:*\n\n");
+    foreach($contas as $usuario){
+        $mensagem = $mensagem.urlencode($usuario['numero']." - ".$usuario['usuario']."  🟢\n");
+    }
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".$mensagem);
+    $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
+    $deletar_query = "TRUNCATE TABLE aposta";
+    $deletar_dados = pg_query($db_handle, $deletar_query);
+    $deletar2_query = "TRUNCATE TABLE chat";
+    $deletar2_dados = pg_query($db_handle, $deletar2_query);
+    $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
+    $reiniciar_dados = pg_query($db_handle, $reiniciar);
 }else{
     $db_handle = pg_connect("host=ec2-35-174-122-153.compute-1.amazonaws.com dbname=dbpgt1k6ka9m34 port=5432 user=phjjwnbbgnzyig password=7fd93b6bd124c6b4ad886d037db4acd289eeca46c4cc7484328896089fc3684e");
     $deletar_query = "TRUNCATE TABLE aposta";
@@ -780,7 +699,7 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     $deletar2_dados = pg_query($db_handle, $deletar2_query);
     $reiniciar =  "INSERT INTO chat (numero) VALUES (1)";
     $reiniciar_dados = pg_query($db_handle, $reiniciar);
-    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas\n*3.* Verificar apostas\n*4.* ⚠️ Encerrar Aposta"));
+    file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Selecione a opção desejada:*\n\n*1.* Reenviar apostas\n*2.* Religar todas as contas\n*3.* Verificar apostas\n*4.* ⚠️ Encerrar Aposta\n*5.* Atualizar contas"));
     $menu = 1;
     $hora = time();
     $menu_query = "UPDATE chat SET hora='$hora', menu='$menu' WHERE numero=1";
