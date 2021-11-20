@@ -231,7 +231,6 @@ function pega_partidas_db($num_partidas){
     return $row;
 }
 function verifica_apostas_concluidas($array_aposta){
-
     $array_aposta_cadastrada = array();
     $i = 0;
     foreach($array_aposta as $aposta){
@@ -250,10 +249,10 @@ function verifica_apostas_concluidas($array_aposta){
         $array_usuarios = [];
 
         foreach($contas_novas as $conta){
-            $array_usuarios[$conta['email']][0] = $conta['numero'];
-            $array_usuarios[$conta['email']][1] = $conta['usuario'];
-            $array_usuarios[$conta['email']][2] = "0";
-            $array_usuarios[$conta['email']][3] = " ⚫";
+            $array_usuarios[$conta['usuario']][0] = $conta['numero'];
+            $array_usuarios[$conta['usuario']][1] = $conta['usuario'];
+            $array_usuarios[$conta['usuario']][2] = "0";
+            $array_usuarios[$conta['usuario']][3] = " ⚫";
         }
         $usuarios_aposta = array();
         $controle_duplicadas = 0;
@@ -261,9 +260,7 @@ function verifica_apostas_concluidas($array_aposta){
         foreach($aposta as $aposta_duplicada){
             $usuarios = verifica_usuarios($aposta_duplicada['id']);
             foreach($usuarios as $usuario){
-                if($usuario['resultado'] == 0){
-                    $array_usuarios[$usuario['emailUsuario']][2]++;
-                }  
+                    $array_usuarios[$usuario][2]++;
             }
         }
         
@@ -289,11 +286,13 @@ function verifica_apostas_concluidas($array_aposta){
                 $mensagem = "\n".$mensagem.$mensagem_duplicadas."\n";
             }
         }
+        
     }
     return $mensagem;
 }
 function muda_usuario($usuario, $status){
     $curl = curl_init();
+
     $contas_novas = atualiza_contas();
 
     $array_usuarios = [];
@@ -304,6 +303,7 @@ function muda_usuario($usuario, $status){
         $array_usuarios[$conta['email']][2] = "";
         $array_usuarios[$conta['email']][3] = " ⚫";
     }
+
     curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://automatips.com.br/api/Usuario/alteraStatusClientePainel?email='.$usuario.'&contaBet365='.$array_usuarios[$usuario][1].'&status='.$status.'&token=JOS2F00AF043DBB75A3B12F28A5D4A1391A48EE9DD3DF424F840C63BCD3345CE02A',
   CURLOPT_RETURNTRANSFER => true,
@@ -621,13 +621,11 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode("*Desligando contas. Aguarde...*"));
     $id = seleciona_id_aposta($texto);
     $usuarios = verifica_usuarios($id);
-    $email_usuarios_pegaram = array();
-    $mensagem = urlencode("*Status dos Usuários:*\n\n");
+    $contas_novas = atualiza_contas();
+    $usuarios_menu = [];
     foreach($usuarios as $usuario){
-        if($usuario['resultado'] == 0){
-            $email_usuarios_pegaram[] = $usuario['emailUsuario'];
-            $array_usuarios = muda_usuario($usuario['emailUsuario'], 0);
-        }
+        $email_usuarios_pegaram[] = $usuarios_menu[$usuario][2];
+        $array_usuarios = muda_usuario($usuarios_menu[$usuario][2], 0);
     }
     $status = verifica_status();
 
