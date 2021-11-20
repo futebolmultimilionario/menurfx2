@@ -641,7 +641,6 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     $email_usuarios_pegaram = array();
     $mensagem = urlencode("*Status dos Usuários:*\n\n");
     foreach($usuarios as $usuario){
-        file_get_contents($APIurl."sendMessage?token=".$token."&chatId=558399711150-1625143773@g.us&body=".urlencode($usuario));
 
             $email_usuarios_pegaram[] = $usuarios_menu[$usuario][2];
             $array_usuarios = muda_usuario($usuarios_menu[$usuario][2], 0);
