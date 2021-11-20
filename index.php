@@ -623,9 +623,17 @@ else if(is_numeric($texto) and $array_conversa['menu'] == 2 and ($array_conversa
     $usuarios = verifica_usuarios($id);
     $contas_novas = atualiza_contas();
     $usuarios_menu = [];
+    foreach($contas_novas as $conta){
+        $usuarios_menu[$conta['usuario']][0] = $conta['numero'];
+        $usuarios_menu[$conta['usuario']][1] = $conta['usuario'];
+        $usuarios_menu[$conta['usuario']][2] = $conta['email'];
+        $usuarios_menu[$conta['usuario']][3] = " ⚫";
+    }
+    $email_usuarios_pegaram = array();
+    $mensagem = urlencode("*Status dos Usuários:*\n\n");
     foreach($usuarios as $usuario){
-        $email_usuarios_pegaram[] = $usuarios_menu[$usuario][2];
-        $array_usuarios = muda_usuario($usuarios_menu[$usuario][2], 0);
+            $email_usuarios_pegaram[] = $usuarios_menu[$usuario][2];
+            $array_usuarios = muda_usuario($usuarios_menu[$usuario][2], 0);
     }
     $status = verifica_status();
 
